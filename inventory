@@ -1,11 +1,10 @@
-[dbservers]
+[db_servers]
 192.168.56.104
 192.168.56.105
-
-[webservers]
+192.168.56.113 ansible_user=ronnlombog
+[web_servers]
 192.168.56.104
 192.168.56.105
-
+192.168.56.113 ansible_user=ronnlombog
 [CentOS]
 192.168.56.113 ansible_user=ronnlombog
-

@@ -1,0 +1,17 @@
+- name: install Samba on Ubuntu
+  apt:
+    name: samba
+    state: present
+  when: ansible_distribution == "Ubuntu"
+
+- name: install Samba on CentOS
+  dnf:
+    name: samba
+    state: present
+  when: ansible_distribution == "CentOS"
+
+- name: ensure Samba service is running
+  service:
+    name: smbd
+    state: started
+    enabled: true

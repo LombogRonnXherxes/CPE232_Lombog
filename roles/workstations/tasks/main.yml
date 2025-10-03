@@ -1,0 +1,11 @@
+- name: install basic workstation packages (Ubuntu)
+  apt:
+    name: [vim, curl, git]
+    state: present
+  when: ansible_distribution == "Ubuntu"
+
+- name: install basic workstation packages (CentOS)
+  dnf:
+    name: [vim, curl, git]
+    state: present
+  when: ansible_distribution == "CentOS"

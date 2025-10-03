@@ -1,0 +1,25 @@
+- name: install Apache on Ubuntu
+  apt:
+    name: apache2
+    state: present
+  when: ansible_distribution == "Ubuntu"
+
+- name: install Apache on CentOS
+  dnf:
+    name: httpd
+    state: present
+  when: ansible_distribution == "CentOS"
+
+- name: ensure web service is running (Ubuntu)
+  service:
+    name: apache2
+    state: started
+    enabled: true
+  when: ansible_distribution == "Ubuntu"
+
+- name: ensure web service is running (CentOS)
+  service:
+    name: httpd
+    state: started
+    enabled: true
+  when: ansible_distribution == "CentOS"
